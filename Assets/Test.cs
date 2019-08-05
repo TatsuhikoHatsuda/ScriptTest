@@ -38,6 +38,18 @@ public class Test : MonoBehaviour {
         midboss.Attack();
         // 防御用の関数を呼び出す
         midboss.Defence(20);
+
+        // 配列arrayの宣言と初期化
+        int[] array = { 1, 2, 3, 4, 5 };
+
+        // arrayの各要素を順に表示
+        for (int i = 0; i < array.Length; i++) {
+            Debug.Log(array[i]);
+        }
+        // arrayの各要素を逆順に表示
+        for (int i = array.Length - 1; i >= 0; i--) {
+            Debug.Log(array[i]);
+        }
 	}
 	
 	// Update is called once per frame
