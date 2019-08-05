@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boss {
     private int hp = 100;       // 体力
     private int power = 25;     // 攻撃力
+    private int mp = 53;        // マジックポイント
 
     // 攻撃用の関数
     public void Attack(){
@@ -16,6 +17,19 @@ public class Boss {
         Debug.Log(damage + "のダメージを受けた");
         // 残りhpを減らす
         this.hp -= damage;
+    }
+
+    // 魔法用の関数
+    public void Magic() {
+        // 残りMPが5以上で魔法発動
+        if (mp >= 5) {
+            // 残りMPを減らす
+            this.mp -= 5;
+            Debug.Log("魔法攻撃をした。残りMPは" + this.mp + "。");
+        }
+        else {
+            Debug.Log("MPが足りないため魔法が使えない。");
+        }
     }
 }
 
@@ -50,6 +64,13 @@ public class Test : MonoBehaviour {
         for (int i = array.Length - 1; i >= 0; i--) {
             Debug.Log(array[i]);
         }
+
+        // 魔法を10回使う
+        for (int i = 0; i < 10; i++) {
+            lastboss.Magic();
+        }
+        // さらにもう一回使う(MPが足りないため発動しない)
+        lastboss.Magic();
 	}
 	
 	// Update is called once per frame
